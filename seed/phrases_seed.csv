@@ -1,0 +1,21 @@
+hindi,santali,santali_latin,category,grade,outcome_code,verified
+बैठ जाओ,,,classroom_instruction,1,,0
+खड़े हो जाओ,,,classroom_instruction,1,,0
+अपनी किताब खोलो,,,classroom_instruction,1,,0
+अपनी किताब बंद करो,,,classroom_instruction,1,,0
+ध्यान से सुनो,,,classroom_instruction,1,,0
+मेरे साथ दोहराओ,,,classroom_instruction,1,,0
+हाथ ऊपर करो,,,classroom_instruction,1,,0
+बोर्ड की ओर देखो,,,classroom_instruction,1,,0
+अपना नाम बताओ,,,conversation,1,,0
+मेरे साथ गिनो,,,numeracy,1,,0
+एक से दस तक गिनो,,,numeracy,1,,0
+पेंसिल उठाओ,,,classroom_instruction,1,,0
+बहुत अच्छा,,,praise,1,,0
+शाबाश,,,praise,1,,0
+फिर से कोशिश करो,,,encouragement,1,,0
+क्या तुम समझे,,,check_understanding,1,,0
+यह कौन सा अक्षर है,,,literacy,1,,0
+यह कौन सी संख्या है,,,numeracy,1,,0
+जोड़ी में काम करो,,,activity,2,,0
+कॉपी में लिखो,,,activity,2,,0
