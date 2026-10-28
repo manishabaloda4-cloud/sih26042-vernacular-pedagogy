@@ -1,41 +1,50 @@
-# SIH26042 – Sync Backend (FastAPI + SQLite)
+# SIH26042 – Vernacular Pedagogy Backend (Hindi → Punjabi, online)
 
-Thin server for the offline tablet app. Stores the verified Hindi→Santali phrase bank and audio,
-and lets tablets download it once (`/package`) and then sync only changes (`/sync?since=N`).
+FastAPI + SQLite. A web frontend calls it over the internet.
 
-## Run
-```bash
-python -m venv venv && source venv/bin/activate      # Windows: venv\Scripts\activate
+`/translate` order: **verified phrase bank → cached machine result → translation engine**.
+Hindi speech-to-text runs in the browser (Web Speech API, `hi-IN`); this API handles translation,
+Punjabi text-to-speech, and worksheet content.
+
+## Run (Windows)
+```
 pip install -r requirements.txt
-export ADMIN_API_KEY=choose-a-secret                  # Windows: set ADMIN_API_KEY=...
-uvicorn app.main:app --reload
+set ADMIN_API_KEY=choose-a-secret
+python -m uvicorn app.main:app --reload
 ```
-Open http://127.0.0.1:8000/docs for the interactive API.
+Open http://127.0.0.1:8000/docs
 
-## Load the starter phrases
-```bash
-curl -X POST http://127.0.0.1:8000/api/v1/admin/import-csv \
-  -H "X-API-Key: $ADMIN_API_KEY" -F "file=@seed/phrases_seed.csv"
+## Load starter phrases
 ```
-The Santali columns are **intentionally empty**. A native speaker must fill and verify them
-(set `verified` to 1). Only verified phrases are used by `/translate`.
+curl -X POST http://127.0.0.1:8000/api/v1/admin/import-csv -H "X-API-Key: choose-a-secret" -F "file=@seed/phrases_seed.csv"
+```
+The Punjabi text in the seed file is unverified. A native speaker should check it and set `verified` to 1.
+
+## Settings (environment variables)
+| Variable | Default | Meaning |
+|---|---|---|
+| ADMIN_API_KEY | dev-key | secret for admin endpoints (always set your own when deployed) |
+| TRANSLATION_ENGINE | google_free,mymemory | engines tried in order; also `mock` |
+| TTS_ENGINE | gtts | `gtts` or `mock` |
+| CORS_ORIGINS | * | set to your frontend URL in production |
+| DATA_DIR | data | database and audio cache location |
 
 ## Endpoints
 | Method | Path | Purpose |
 |---|---|---|
-| GET | /api/v1/manifest | current content version and counts |
-| GET | /api/v1/package | first-time zip (phrases.json + audio) |
-| GET | /api/v1/sync?since=N | changes after version N (deleted = tombstone) |
-| GET | /api/v1/audio/{file} | one audio file |
-| GET | /api/v1/translate?q=... | fuzzy Hindi→Santali match (for testing) |
-| POST | /api/v1/admin/phrases | add or update one phrase |
-| DELETE | /api/v1/admin/phrases/{id} | remove a phrase |
+| GET | /health | server check |
+| GET | /api/v1/stats | phrase counts |
+| GET | /api/v1/translate?q=...&source=hi&target=pa | translate one sentence (returns origin and latency_ms) |
+| POST | /api/v1/translate-batch | translate many texts |
+| GET | /api/v1/phrases?category=&grade= | list phrases (flashcards) |
+| GET | /api/v1/tts?text=...&lang=pa | text → mp3 |
+| GET | /api/v1/worksheet?grade=1&count=10 | worksheet content (frontend prints to PDF) |
+| POST | /api/v1/admin/phrases | add/update a phrase (needs X-API-Key) |
+| DELETE | /api/v1/admin/phrases/{id} | delete a phrase |
 | POST | /api/v1/admin/import-csv | bulk import |
-| POST | /api/v1/admin/audio/{id} | upload recorded audio |
-
-Admin endpoints need the `X-API-Key` header.
 
 ## Test
-```bash
-pytest -q
 ```
+python -m pytest -q
+```
+Tests use mock engines and run offline. Real translation and TTS need internet.
