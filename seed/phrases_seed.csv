@@ -1,21 +1,21 @@
-hindi,santali,santali_latin,category,grade,outcome_code,verified
-बैठ जाओ,,,classroom_instruction,1,,0
-खड़े हो जाओ,,,classroom_instruction,1,,0
-अपनी किताब खोलो,,,classroom_instruction,1,,0
-अपनी किताब बंद करो,,,classroom_instruction,1,,0
-ध्यान से सुनो,,,classroom_instruction,1,,0
-मेरे साथ दोहराओ,,,classroom_instruction,1,,0
-हाथ ऊपर करो,,,classroom_instruction,1,,0
-बोर्ड की ओर देखो,,,classroom_instruction,1,,0
-अपना नाम बताओ,,,conversation,1,,0
-मेरे साथ गिनो,,,numeracy,1,,0
-एक से दस तक गिनो,,,numeracy,1,,0
-पेंसिल उठाओ,,,classroom_instruction,1,,0
-बहुत अच्छा,,,praise,1,,0
-शाबाश,,,praise,1,,0
-फिर से कोशिश करो,,,encouragement,1,,0
-क्या तुम समझे,,,check_understanding,1,,0
-यह कौन सा अक्षर है,,,literacy,1,,0
-यह कौन सी संख्या है,,,numeracy,1,,0
-जोड़ी में काम करो,,,activity,2,,0
-कॉपी में लिखो,,,activity,2,,0
+hindi,target_text,category,grade,outcome_code,verified
+बैठ जाओ,ਬੈਠ ਜਾਓ,classroom_instruction,1,,0
+खड़े हो जाओ,ਖੜ੍ਹੇ ਹੋ ਜਾਓ,classroom_instruction,1,,0
+अपनी किताब खोलो,ਆਪਣੀ ਕਿਤਾਬ ਖੋਲ੍ਹੋ,classroom_instruction,1,,0
+अपनी किताब बंद करो,ਆਪਣੀ ਕਿਤਾਬ ਬੰਦ ਕਰੋ,classroom_instruction,1,,0
+ध्यान से सुनो,ਧਿਆਨ ਨਾਲ ਸੁਣੋ,classroom_instruction,1,,0
+मेरे साथ दोहराओ,ਮੇਰੇ ਨਾਲ ਦੁਹਰਾਓ,classroom_instruction,1,,0
+हाथ ऊपर करो,ਹੱਥ ਉੱਪਰ ਕਰੋ,classroom_instruction,1,,0
+बोर्ड की ओर देखो,ਬੋਰਡ ਵੱਲ ਦੇਖੋ,classroom_instruction,1,,0
+अपना नाम बताओ,ਆਪਣਾ ਨਾਮ ਦੱਸੋ,conversation,1,,0
+मेरे साथ गिनो,ਮੇਰੇ ਨਾਲ ਗਿਣੋ,numeracy,1,,0
+एक से दस तक गिनो,ਇੱਕ ਤੋਂ ਦਸ ਤੱਕ ਗਿਣੋ,numeracy,1,,0
+पेंसिल उठाओ,ਪੈਨਸਿਲ ਚੁੱਕੋ,classroom_instruction,1,,0
+बहुत अच्छा,ਬਹੁਤ ਵਧੀਆ,praise,1,,0
+शाबाश,ਸ਼ਾਬਾਸ਼,praise,1,,0
+फिर से कोशिश करो,ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ,encouragement,1,,0
+क्या तुम समझे,ਕੀ ਤੁਸੀਂ ਸਮਝ ਗਏ,check_understanding,1,,0
+यह कौन सा अक्षर है,ਇਹ ਕਿਹੜਾ ਅੱਖਰ ਹੈ,literacy,1,,0
+यह कौन सी संख्या है,ਇਹ ਕਿਹੜੀ ਗਿਣਤੀ ਹੈ,numeracy,1,,0
+जोड़ी में काम करो,ਜੋੜੀ ਵਿੱਚ ਕੰਮ ਕਰੋ,activity,2,,0
+कॉपी में लिखो,ਕਾਪੀ ਵਿੱਚ ਲਿਖੋ,activity,2,,0
