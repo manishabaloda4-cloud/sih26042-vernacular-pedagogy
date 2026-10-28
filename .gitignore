@@ -1,5 +1,7 @@
 venv/
 __pycache__/
 *.pyc
-data/content.db
+data/*.db
+data/tts/
 .pytest_cache/
+.env
