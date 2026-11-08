@@ -1,0 +1,6 @@
+# Only needed to run the fine-tuned model locally (TRANSLATION_ENGINE=local_model,...)
+torch
+transformers>=4.40
+peft>=0.10
+sentencepiece
+accelerate

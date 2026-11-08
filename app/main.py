@@ -111,16 +111,17 @@ def do_translate(conn, text: str, source: str, target: str, min_score: float) ->
             _, score, pid = best
             r = rows[pid]
             result = {"text": r["target_text"], "origin": "verified_bank" if r["verified"] else "cache",
-                      "confidence": round(score, 1), "matched_hindi": r["hindi"]}
+                      "engine": None, "confidence": round(score, 1), "matched_hindi": r["hindi"]}
     # 2) translation engine
     if result is None:
         try:
-            out = engines.translate(text, source, target)
+            out, engine_name = engines.translate(text, source, target)
         except engines.EngineError as e:
             raise HTTPException(502, str(e))
         if source == "hi" and len(text) <= 300:
             cache_machine_translation(conn, text, target, out)
-        result = {"text": out, "origin": "machine", "confidence": None, "matched_hindi": None}
+        result = {"text": out, "origin": "machine", "engine": engine_name,
+                  "confidence": None, "matched_hindi": None}
     result.update({"query": text, "source": source, "target": target,
                    "latency_ms": round((time.perf_counter() - start) * 1000, 1)})
     return result

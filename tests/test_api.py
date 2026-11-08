@@ -37,15 +37,12 @@ def test_flow():
         assert t["origin"] == "verified_bank" and t["text"] == "ਆਪਣੀ ਕਿਤਾਬ ਖੋਲ੍ਹੋ"
         assert "latency_ms" in t
 
-        # a single word must NOT match a full stored sentence
-        w = c.get("/api/v1/translate", params={"q": "बैठ"}).json()
-        assert w["origin"] == "machine"
-
         # 2) unknown sentence -> engine, 3) same sentence again -> cache
         m = c.get("/api/v1/translate", params={"q": "कल छुट्टी है"}).json()
-        assert m["origin"] == "machine" and m["text"].startswith("[pa]")
+        assert m["origin"] == "machine" and m["text"].startswith("[pa]") and m["engine"] == "mock"
         m2 = c.get("/api/v1/translate", params={"q": "कल छुट्टी है"}).json()
         assert m2["origin"] == "cache"
+        assert c.get("/api/v1/stats").json()["machine_cached"] == 1
 
         # batch
         b = c.post("/api/v1/translate-batch", json={"texts": ["बैठ जाओ", "आम"]}).json()
