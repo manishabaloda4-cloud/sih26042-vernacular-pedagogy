@@ -42,7 +42,7 @@ def _local_model(text: str, source: str, target: str) -> str:
                               "and unzip hi-pa-lora.zip there.")
         from peft import PeftModel
         tok = AutoTokenizer.from_pretrained(base)
-        model = AutoModelForSeq2SeqLM.from_pretrained(base)
+        model = AutoModelForSeq2SeqLM.from_pretrained(base, use_safetensors=False)
         model = PeftModel.from_pretrained(model, adapter).merge_and_unload()
         model.eval()
         _LOCAL.update(tok=tok, model=model)

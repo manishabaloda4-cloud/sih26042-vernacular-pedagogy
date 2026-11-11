@@ -5,3 +5,13 @@ data/*.db
 data/tts/
 .pytest_cache/
 .env
+
+# Local ML model
+models/hi-pa-lora/
+
+# Generated evaluation files
+data/eval_*.csv
+data/classroom_test_*.csv
+data/phrases_verified.csv
+data/pairs_draft.csv
+data/classroom_test.csv
