@@ -1,6 +1,6 @@
 # SIH26042 – Backend (online): Hindi → Punjabi
 
-FastAPI + SQLite. A browser/tablet frontend calls it over the internet.
+FastAPI + SQLite. A browser/tablet frontend calls it over the internet..
 
 `/translate` order: **verified phrase bank → cached machine result → translation engine**.
 Hindi speech-to-text is done in the browser (Web Speech API, `hi-IN`); this API does translation,
