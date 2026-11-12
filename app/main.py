@@ -145,6 +145,20 @@ class BatchIn(BaseModel):
 
 
 # ---------- public endpoints ----------
+@app.get("/debug/model-files")
+def debug_model_files():
+    adapter_dir = os.environ.get("LOCAL_MODEL_DIR", "models/hi-pa-lora")
+    files = []
+    if os.path.isdir(adapter_dir):
+        files = os.listdir(adapter_dir)
+
+    return {
+        "adapter_dir": adapter_dir,
+        "exists": os.path.isdir(adapter_dir),
+        "files": files,
+        "cwd": os.getcwd(),
+    }
+
 @app.get("/health")
 def health():
     return {"status": "ok", "translation_engine": os.environ.get("TRANSLATION_ENGINE", "google_free")}
