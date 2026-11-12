@@ -6,9 +6,6 @@ data/tts/
 .pytest_cache/
 .env
 
-# Local ML model
-models/hi-pa-lora/
-
 # Generated evaluation files
 data/eval_*.csv
 data/classroom_test_*.csv
